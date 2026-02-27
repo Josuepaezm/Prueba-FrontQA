@@ -1,0 +1,7 @@
+com\tasks\AddProduct.class
+com\questions\CompraExitosa.class
+com\userinterfaces\HomePage.class
+com\userinterfaces\ProductPage.class
+com\tasks\Checkout.class
+com\interactions\AcceptAlert.class
+com\userinterfaces\CarritoPage.class

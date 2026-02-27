@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------
+Test set: com.runners.PurchaseRunnerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 24.57 s <<< FAILURE! -- in com.runners.PurchaseRunnerTest
+Flujo de compra E2E en Demoblaze.Compra exitosa de dos productos -- Time elapsed: 21.61 s <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.18'
+Driver info: net.thucydides.core.webdriver.DevToolsWebDriverFacade
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at com.interactions.AcceptAlert.performAs(AcceptAlert.java:19)
+	at com.interactions.AcceptAlert$ByteBuddy$l4EMDeQ7.performAs$accessor$DTt7xu9M(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:522)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:502)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:474)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:213)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:88)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at com.interactions.AcceptAlert$ByteBuddy$l4EMDeQ7.performAs(Unknown Source)
+	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:299)
+	at net.serenitybdd.screenplay.Actor.perform(Actor.java:274)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:215)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:222)
+	at com.tasks.AddProduct.performAs(AddProduct.java:26)
+	at com.tasks.AddProduct$ByteBuddy$hzvTGFTO.performAs$accessor$4Qs1iv0o(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:522)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:502)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:474)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:213)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:200)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:88)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at com.tasks.AddProduct$ByteBuddy$hzvTGFTO.performAs(Unknown Source)
+	at net.serenitybdd.screenplay.Actor.performTask(Actor.java:299)
+	at net.serenitybdd.screenplay.Actor.perform(Actor.java:274)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:215)
+	at net.serenitybdd.screenplay.Actor.attemptsTo(Actor.java:222)
+	at com.stepdefinitions.PurchaseStepDefinitions.agregaElProductoAlCarrito(PurchaseStepDefinitions.java:39)
+	at ✽.agrega el producto "Samsung galaxy s6" al carrito(file:///C:/Users/USUARIO/Desktop/Autos/Proyecto%20TCS%20Pichincha/src/test/resources/features/comprar_productos.feature:8)
+
