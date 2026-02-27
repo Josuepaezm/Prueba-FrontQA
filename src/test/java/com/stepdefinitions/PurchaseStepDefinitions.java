@@ -1,7 +1,6 @@
 package com.stepdefinitions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeOptions;
 import com.questions.CompraExitosa;
 import com.tasks.AddProduct;
 import com.tasks.Checkout;
@@ -24,10 +23,6 @@ public class PurchaseStepDefinitions {
 
         OnStage.setTheStage(new OnlineCast());
     }
-
-    //public void setTheStage() {
-    //    OnStage.setTheStage(new OnlineCast());
-   // }
 
     @Given("que el cliente se encuentra en la pagina de inicio")
     public void queElClienteSeEncuentraEnLaPaginaDeInicio() {
