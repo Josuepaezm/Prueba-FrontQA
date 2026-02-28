@@ -1,15 +1,15 @@
-HALLAZGOS Y CONCLUSIONES DEL EJERCICIO
+CONCLUSIONES DEL EJERCICIO
 
-1. Arquitectura y Mantenibilidad:
+Arquitectura y Mantenibilidad:
 Se implementó el patrón Screenplay junto con Serenity BDD. Esto permitió separar claramente las responsabilidades: las interfaces de usuario (UserInterfaces), las acciones que realiza el actor (Tasks) y las validaciones (Questions). Esto hace que el código sea altamente escalable si se desean agregar más flujos en la página de Demoblaze.
 
-2. Manejo de Alertas Nativas (Interactions):
-Hallazgo Técnico: Demoblaze utiliza alertas nativas de Javascript al momento de agregar un producto al carrito ("Product added"). Las herramientas convencionales a veces fallan al interceptar esto.
+Manejo de Alertas Nativas (Interactions):
+Hallazgo Técnico: Demoblaze utiliza alertas nativas de Javascript al momento de agregar un producto al carrito . Las herramientas convencionales a veces fallan al interceptar esto.
 Solución: Se implementó una "Interaction" personalizada llamada "AcceptAlert" que instruye al WebDriver a esperar y aceptar la alerta garantizando que el flujo continúe sin interrupciones.
 
-3. Sincronización y Tiempos de Carga:
-Hallazgo Técnico: Al tratarse de una página de demostración, los elementos del DOM en Demoblaze a veces sufren retrasos en cargar (especialmente al volver al Home o al abrir el modal de carrito).
+Sincronización y Tiempos de Carga:
+Hallazgo Técnico: Al tratarse de una página de demostración, los elementos del DOM en la pagina a veces sufren retrasos en cargar (especialmente al volver al Home o al abrir el modal de carrito).
 Solución: Se utilizaron esperas explícitas eficientes propias de Screenplay (WaitUntil.the(Target, isVisible/isClickable)) en lugar de usar Thread.sleep(), optimizando el tiempo total de ejecución de la prueba y evitando falsos negativos.
 
-4. Evidencia:
+Evidencia:
 Serenity BDD capturó exitosamente pantallazos de cada interacción del actor, documentando el flujo completo desde que selecciona el "Samsung galaxy s6" hasta el mensaje de "Thank you for your purchase!".

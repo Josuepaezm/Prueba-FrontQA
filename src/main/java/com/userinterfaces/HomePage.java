@@ -8,4 +8,6 @@ public class HomePage {
             .locatedBy("//a[contains(text(),'Home')]");
     public static final Target CART_MENU = Target.the("Menú Carrito")
             .locatedBy("#cartur");
+    public static final Target CLICK_FONDO_1 = Target.the("Fondo primer celular")
+            .locatedBy("//*[@id=\"tbodyid\"]/h3");
 }

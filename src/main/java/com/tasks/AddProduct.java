@@ -1,5 +1,6 @@
 package com.tasks;
 
+import java.time.Duration;
 import net.serenitybdd.screenplay.actions.JavaScriptClick;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
@@ -23,25 +24,20 @@ public class AddProduct implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                // 1. Ir al producto
-                WaitUntil.the(HomePage.PRODUCT_LINK.of(productName), isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(HomePage.PRODUCT_LINK.of(productName), isVisible()).forNoMoreThan(Duration.ofSeconds(10)),
                 Click.on(HomePage.PRODUCT_LINK.of(productName)),
 
-                // 2. Agregar al carrito
-                WaitUntil.the(ProductPage.ADD_TO_CART_BTN, isClickable()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(ProductPage.ADD_TO_CART_BTN, isClickable()).forNoMoreThan(Duration.ofSeconds(10)),
                 Click.on(ProductPage.ADD_TO_CART_BTN),
-
-                // 3. Esperar y Aceptar Alerta (Usando tu interacción validada)
-                WaitUntil.the(ExpectedConditions.alertIsPresent()),
 
                 AcceptAlert.now(),
 
-                // Esperamos a que el menú sea visible tras cerrar el alert
-                WaitUntil.the(HomePage.PRODUCT_LINK, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(ExpectedConditions.not(ExpectedConditions.alertIsPresent())).forNoMoreThan(Duration.ofSeconds(5)),
 
-                // Usamos JavaScriptClick en lugar de Click normal si el anterior se queda pegado
-                JavaScriptClick.on(HomePage.HOME_MENU)
+                WaitUntil.the(HomePage.HOME_MENU, isClickable()).forNoMoreThan(Duration.ofSeconds(10)),
+                JavaScriptClick.on(HomePage.HOME_MENU),
 
+                WaitUntil.the(HomePage.PRODUCT_LINK.of(productName), isVisible()).forNoMoreThan(Duration.ofSeconds(5))
         );
     }
 

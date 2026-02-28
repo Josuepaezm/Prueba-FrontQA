@@ -18,9 +18,7 @@ public class PurchaseStepDefinitions {
 
     @Before
     public void setTheStage() {
-        // Esto descarga y configura la versión 145 (o la necesaria) automáticamente
         WebDriverManager.chromedriver().setup();
-
         OnStage.setTheStage(new OnlineCast());
     }
 
