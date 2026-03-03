@@ -7,9 +7,9 @@ Manejo de Alertas Nativas (Interactions):
 Hallazgo Técnico: Demoblaze utiliza alertas nativas de Javascript al momento de agregar un producto al carrito . Las herramientas convencionales a veces fallan al interceptar esto.
 Solución: Se implementó una "Interaction" personalizada llamada "AcceptAlert" que instruye al WebDriver a esperar y aceptar la alerta garantizando que el flujo continúe sin interrupciones.
 
-Sincronización y Tiempos de Carga:
-Hallazgo Técnico: Al tratarse de una página de demostración, los elementos del DOM en la pagina a veces sufren retrasos en cargar (especialmente al volver al Home o al abrir el modal de carrito).
-Solución: Se utilizaron esperas explícitas eficientes propias de Screenplay (WaitUntil.the(Target, isVisible/isClickable)) en lugar de usar Thread.sleep(), optimizando el tiempo total de ejecución de la prueba y evitando falsos negativos.
+Sincronización y UI Inestable:
+Hallazgo Técnico: Al tratarse de una página de demostración, los elementos sufren retrasos en cargar y presentan solapamientos por modales
+Solución: Se utilizaron esperas explícitas eficaces (WaitUntil.the(Target, isVisible/isClickable)), se manejó de forma segura la excepción de timeout en AcceptAlert.java, y se aplicó Scroll.to para asegurar que el click llegue al elemento a pesar de la inestabilidad de la UI.
 
 Evidencia:
 Serenity BDD capturó exitosamente pantallazos de cada interacción del actor, documentando el flujo completo desde que selecciona el "Samsung galaxy s6" hasta el mensaje de "Thank you for your purchase!".

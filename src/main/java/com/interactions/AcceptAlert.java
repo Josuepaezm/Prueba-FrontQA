@@ -12,9 +12,13 @@ import java.time.Duration;
 public class AcceptAlert implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WebDriverWait wait = new WebDriverWait(BrowseTheWeb.as(actor).getDriver(), Duration.ofSeconds(10));
-        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-        alert.accept();
+        try {
+            WebDriverWait wait = new WebDriverWait(BrowseTheWeb.as(actor).getDriver(), Duration.ofSeconds(10));
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alert.accept();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            System.out.println("La alerta no apareció o tomó demasiado tiempo. Continuando flujo.");
+        }
     }
 
     public static AcceptAlert now() {

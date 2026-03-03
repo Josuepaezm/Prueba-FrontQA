@@ -25,20 +25,22 @@ public class AddProduct implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(HomePage.PRODUCT_LINK.of(productName), isVisible()).forNoMoreThan(Duration.ofSeconds(10)),
+                net.serenitybdd.screenplay.actions.Scroll.to(HomePage.PRODUCT_LINK.of(productName)),
                 Click.on(HomePage.PRODUCT_LINK.of(productName)),
 
+                WaitUntil.the(ProductPage.ADD_TO_CART_BTN, isVisible()).forNoMoreThan(Duration.ofSeconds(10)),
                 WaitUntil.the(ProductPage.ADD_TO_CART_BTN, isClickable()).forNoMoreThan(Duration.ofSeconds(10)),
                 Click.on(ProductPage.ADD_TO_CART_BTN),
 
                 AcceptAlert.now(),
 
-                WaitUntil.the(ExpectedConditions.not(ExpectedConditions.alertIsPresent())).forNoMoreThan(Duration.ofSeconds(5)),
+                WaitUntil.the(ExpectedConditions.not(ExpectedConditions.alertIsPresent()))
+                        .forNoMoreThan(Duration.ofSeconds(5)),
 
                 WaitUntil.the(HomePage.HOME_MENU, isClickable()).forNoMoreThan(Duration.ofSeconds(10)),
                 JavaScriptClick.on(HomePage.HOME_MENU),
 
-                WaitUntil.the(HomePage.PRODUCT_LINK.of(productName), isVisible()).forNoMoreThan(Duration.ofSeconds(5))
-        );
+                WaitUntil.the(HomePage.PRODUCT_LINK.of(productName), isVisible()).forNoMoreThan(Duration.ofSeconds(5)));
     }
 
     public static AddProduct toCart(String productName) {
